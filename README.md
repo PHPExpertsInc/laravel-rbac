@@ -1,11 +1,11 @@
 # Laravel RBAC
-Super simple RBAC/ACL implementation for Laravel 5.
+Super simple RBAC/ACL implementation for Laravel 5. Laravel 5.3 compatible fork of https://github.com/keepanitreel/laravel-rbac.
 
 ## Installation
 Require this package with composer ([Packagist](https://packagist.org/packages/phpzen/laravel-rbac)) using the following command
 
 ```
-composer require phpzen/laravel-rbac
+composer require visualappeal/laravel-rbac
 ```
 
 or modify your `composer.json`
@@ -13,7 +13,7 @@ or modify your `composer.json`
 ```
 "require": {
     ...
-    "phpzen/laravel-rbac": "^0.2"
+    "visualappeal/laravel-rbac": "^0.3"
 }
 ```
 
