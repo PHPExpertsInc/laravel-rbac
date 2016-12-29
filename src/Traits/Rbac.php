@@ -15,13 +15,17 @@ trait Rbac
      */
     public function hasRole($role)
     {
-        $roles = $this->roles()->pluck('slug')->toArray();
-        if(false !== strpos($role, '|')) {
+        static $roles = [];
+        if (!isset($roles[$this->id]))
+            $roles[$this->id] = $this->roles()->pluck('slug')->toArray();
+
+        if (false !== strpos($role, '|')) {
             $roleArr = explode('|', $role);
         } else {
             $roleArr = [$role];
         }
-        return !empty(array_intersect($roleArr, $roles));
+
+        return !empty(array_intersect($roleArr, $roles[$this->id]));
     }
 
     /**
@@ -31,16 +35,20 @@ trait Rbac
     public function canDo($operation)
     {
         $roles = $this->roles;
-        $permissions = [];
-        foreach ($roles as $role) {
-            $permissions = array_merge($permissions, $role->permissions()->pluck('slug')->toArray());
+        static $permissions = [];
+        if (!isset($permissions[$this->id])) {
+            foreach ($roles as $role) {
+                $permissions[$this->id] = array_merge($permissions, $role->permissions()->pluck('slug')->toArray());
+            }
+            $permissions[$this->id] = array_unique($permissions[$this->id]);
         }
-        $permissions = array_unique($permissions);
-        if(false !== strpos($operation, '|')) {
+
+        if (false !== strpos($operation, '|')) {
             $operationArr = explode('|', $operation);
         } else {
             $operationArr = [$operation];
         }
-        return !empty(array_intersect($operationArr, $permissions));
+
+        return !empty(array_intersect($operationArr, $permissions[$this->id]));
     }
 }
