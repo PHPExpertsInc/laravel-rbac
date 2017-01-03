@@ -37,8 +37,9 @@ trait Rbac
         $roles = $this->roles;
         static $permissions = [];
         if (!isset($permissions[$this->id])) {
+            $permissions[$this->id] = [];
             foreach ($roles as $role) {
-                $permissions[$this->id] = array_merge($permissions, $role->permissions()->pluck('slug')->toArray());
+                $permissions[$this->id] = array_merge($permissions[$this->id], $role->permissions()->pluck('slug')->toArray());
             }
             $permissions[$this->id] = array_unique($permissions[$this->id]);
         }
