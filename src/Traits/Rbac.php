@@ -6,7 +6,9 @@ trait Rbac
 {
     public function roles()
     {
-        return $this->belongsToMany('PHPZen\LaravelRbac\Model\Role')->withTimestamps();
+        return $this->belongsToMany('PHPZen\LaravelRbac\Model\Role')
+            ->with('permissions')
+            ->withTimestamps();
     }
 
     /**
@@ -39,7 +41,7 @@ trait Rbac
         if (!isset($permissions[$this->id])) {
             $permissions[$this->id] = [];
             foreach ($roles as $role) {
-                $permissions[$this->id] = array_merge($permissions[$this->id], $role->permissions()->pluck('slug')->toArray());
+                $permissions[$this->id] = array_merge($permissions[$this->id], $role->permissions->pluck('slug')->toArray());
             }
             $permissions[$this->id] = array_unique($permissions[$this->id]);
         }
