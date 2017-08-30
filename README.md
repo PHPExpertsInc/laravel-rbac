@@ -1,5 +1,5 @@
 # Laravel RBAC
-Super simple RBAC/ACL implementation for Laravel 5. Laravel 5.4 compatible fork of https://github.com/keepanitreel/laravel-rbac.
+Super simple RBAC/ACL implementation for Laravel 5. Laravel >=5.4 compatible fork of https://github.com/keepanitreel/laravel-rbac.
 
 ## Installation
 Require this package with composer ([Packagist](https://packagist.org/packages/phpzen/laravel-rbac)) using the following command
