@@ -13,7 +13,7 @@ or modify your `composer.json`
 ```
 "require": {
     ...
-    "visualappeal/laravel-rbac": "^0.3"
+    "visualappeal/laravel-rbac": "^0.7"
 }
 ```
 
