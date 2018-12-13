@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPZen\LaravelRbac\Middleware;
+namespace PHPExperts\LaravelRBAC\Middleware;
 
 use Closure;
 

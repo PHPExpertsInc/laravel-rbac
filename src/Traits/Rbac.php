@@ -1,12 +1,12 @@
 <?php
 
-namespace PHPZen\LaravelRbac\Traits;
+namespace PHPExperts\LaravelRBAC\Traits;
 
 trait Rbac
 {
     public function roles()
     {
-        return $this->belongsToMany('PHPZen\LaravelRbac\Model\Role')
+        return $this->belongsToMany('PHPExperts\LaravelRBAC\Model\Role')
             ->with('permissions')
             ->withTimestamps();
     }

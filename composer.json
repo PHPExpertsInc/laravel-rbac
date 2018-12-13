@@ -1,5 +1,5 @@
 {
-  "name": "visualappeal/laravel-rbac",
+  "name": "phpexperts/laravel-rbac",
   "description": "Role based access control for Laravel 5",
   "keywords": [
     "laravel",
@@ -14,19 +14,19 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "PHPZen",
-      "email": "phpzen.code@gmail.com",
-      "homepage": "https://github.com/phpzen",
-      "role": "Developer"
+      "name": "Theodore R. Smith",
+      "email": "theodore@phpexperts.pro",
+      "homepage": "https://github.com/phpexpertsinc",
+      "role": "CEO"
     }
   ],
   "require": {
     "php": ">=5.5.9",
-    "illuminate/support": ">=5.4"
+    "illuminate/support": ">=5.6"
   },
   "autoload": {
     "psr-4": {
-      "PHPZen\\LaravelRbac\\": "src/"
+      "PHPExperts\\LaravelRBAC\\": "src/"
     }
   }
 }
