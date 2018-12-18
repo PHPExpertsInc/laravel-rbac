@@ -25,13 +25,7 @@ After installation register the ServiceProvider to the `providers` array in `con
 PHPExperts\LaravelRBAC\RbacServiceProvider::class,
 ```
 
-Publish migration files
-
-```
-$ php artisan vendor:publish --provider="PHPExperts\LaravelRBAC\RbacServiceProvider" --force
-```
-
-Run migrations
+Run the migrations
 
 ```
 $ php artisan migrate

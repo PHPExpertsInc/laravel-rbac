@@ -16,7 +16,7 @@ class RbacServiceProvider extends ServiceProvider
 
     public function register()
     {
-
+        $this->loadMigrationsFrom(__DIR__.'../database/migrations');
     }
 
     /**
@@ -26,9 +26,6 @@ class RbacServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/database/migrations/' => base_path('/database/migrations')
-        ]);
         Blade::directive('ifUserIs', function($expression){
             return "<?php if (Auth::check() && Auth::user()->hasRole({$expression})): ?>";
         });
