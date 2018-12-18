@@ -2,7 +2,7 @@
 
 namespace PHPExperts\LaravelRBAC\Traits;
 
-trait Rbac
+trait HasRoles
 {
     public function roles()
     {
