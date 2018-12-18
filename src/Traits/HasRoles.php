@@ -18,8 +18,10 @@ trait HasRoles
     public function hasRole($role)
     {
         static $roles = [];
-        if (!isset($roles[$this->id]))
+
+        if (!isset($roles[$this->id])) {
             $roles[$this->id] = $this->roles()->pluck('slug')->toArray();
+        }
 
         if (false !== strpos($role, '|')) {
             $roleArr = explode('|', $role);

@@ -2,9 +2,9 @@
 
 namespace PHPExperts\LaravelRBAC\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use PHPExperts\ConciseUuid\ConciseUuid;
 
-class Role extends Model
+class Role extends ConciseUuid
 {
     protected $fillable = ['name', 'slug', 'description'];
 

@@ -3,7 +3,6 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 
 class CreatePermissionRoleTable extends Migration
 {
@@ -15,12 +14,21 @@ class CreatePermissionRoleTable extends Migration
     public function up()
     {
         Schema::create('permission_role', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('permission_id')->index();
-            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+            $table->char('id', 22);
+            $table->char('permission_id', 22)->index();
             $table->unsignedInteger('role_id')->index();
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
+
+            $table->foreign('permission_id')
+                ->references('id')
+                ->on('permissions')
+                ->onDelete('cascade');
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles')
+                ->onDelete('cascade');
+
+            $table->primary('id');
         });
     }
 
