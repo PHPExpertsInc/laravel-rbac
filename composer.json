@@ -29,5 +29,12 @@
     "psr-4": {
       "PHPExperts\\LaravelRBAC\\": "src/"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "PHPExperts\\LaravelRBAC\\RbacServiceProvider"
+      ]
+    }
   }
 }
