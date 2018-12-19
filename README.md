@@ -13,7 +13,7 @@ or modify your `composer.json`
 ```
 "require": {
     ...
-    "phpexperts/laravel-rbac": "^0.7"
+    "phpexperts/laravel-rbac": "^1.0"
 }
 ```
 
@@ -47,7 +47,7 @@ use PHPExperts\LaravelRBAC\Traits\Rbac;
 	
 class User extends Authenticatable
 {
-    use Rbac;
+    use HasRoles;
     ...
 	    
 }
