@@ -12,7 +12,7 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('rbac_roles', function (Blueprint $table) {
             $table->char('id', 22);
             $table->string('name');
             $table->string('slug')->unique();

@@ -6,7 +6,7 @@ trait HasRoles
 {
     public function roles()
     {
-        return $this->belongsToMany('PHPExperts\LaravelRBAC\Model\Role')
+        return $this->belongsToMany('PHPExperts\LaravelRBAC\Models\Role')
             ->with('permissions')
             ->withTimestamps();
     }

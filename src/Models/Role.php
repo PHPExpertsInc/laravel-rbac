@@ -1,11 +1,13 @@
 <?php
 
-namespace PHPExperts\LaravelRBAC\Model;
+namespace PHPExperts\LaravelRBAC\Models;
 
 use PHPExperts\ConciseUuid\ConciseUuid;
 
 class Role extends ConciseUuid
 {
+    protected $table = 'rbac_roles';
+
     protected $fillable = ['name', 'slug', 'description'];
 
     public function users()
@@ -15,6 +17,6 @@ class Role extends ConciseUuid
 
     public function permissions()
     {
-        return $this->belongsToMany('PHPExperts\LaravelRBAC\Model\Permission')->withTimestamps();
+        return $this->belongsToMany('PHPExperts\LaravelRBAC\Models\Permission', 'rbac_roles_permissions')->withTimestamps();
     }
 }

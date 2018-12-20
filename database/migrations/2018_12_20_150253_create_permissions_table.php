@@ -12,7 +12,7 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function (Blueprint $table) {
+        Schema::create('rbac_permissions', function (Blueprint $table) {
             $table->char('id', 22);
             $table->string('name');
             $table->string('slug')->unique();
