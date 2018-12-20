@@ -23,11 +23,6 @@ class RbacServiceProvider extends ServiceProvider
      */
     protected $defer = false;
 
-    public function register()
-    {
-        $this->loadMigrationsFrom(__DIR__.'../database/migrations');
-    }
-
     /**
      * Bootstrap the application services.
      *
@@ -35,6 +30,8 @@ class RbacServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
         Blade::directive('ifUserIs', function($expression){
             return "<?php if (Auth::check() && Auth::user()->hasRole({$expression})): ?>";
         });
